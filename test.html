@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>내가 생각하는 환경은?</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style>
+            #order {
+                width: 80px;
+                text-align: center;
+                background-color: dodgerblue;
+                border-radius: 30px;
+                color: white;
+            }
+
+            .q1 {
+                color: black;
+                font-size: 32px;
+                width: 100%;
+                margin-top: 30px;
+                margin-bottom: 50px;
+            }
+
+            .buttons {
+                width: 100%;
+            }
+
+            .button {
+                color: whitesmoke;
+                background-color: dodgerblue;
+                margin: 10px auto;
+            }
+
+            #answers {
+                text-align: left;
+            }
+
+            .buttons:hover {
+                color: white;
+                font-weight: bold;
+            }
+
+            .buttons .button {
+                font-size: 20px;
+                height: 80px;
+                text-align: left;
+            }
+
+            .wrapper {
+                width: 500px;
+                height: 880px;
+                background-size: 500px 880px;
+                background-position: center;
+                align-items: center;
+                padding-top: 100px;
+                margin: auto;
+            }
+
+            line {
+                width: 500px;
+                height: 880px;
+                background-size: 500px 880px;
+                background-position: center;
+                align-items: center;
+                padding-top: 100px;
+                margin: auto;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                $('#test1').show();
+                $('#test2').hide();
+                $('#test3').hide();
+                $('#test4').hide();
+            })
+
+            function one() {
+                $('#test1').hide();
+                $('#test2').show();
+                $('#test3').hide();
+                $('#test4').hide();
+            }
+
+            function two() {
+                $('#test1').hide();
+                $('#test2').hide();
+                $('#test3').show();
+                $('#test4').hide();
+            }
+
+            function three() {
+                $('#test1').hide();
+                $('#test2').hide();
+                $('#test3').hide();
+                $('#test4').show();
+            }
+
+             function four() {
+
+                var form = document.test;
+                if ((form.ns[0].checked == true) && (form.tf[0].checked == true)) {
+                    form.action = "index1.html";
+                } else if ((form.ns[1].checked == true) && (form.pj[1].checked == true)) {
+                    form.action = "index2.html";
+                } else if ((form.ns[0].checked == true) && (form.tf[1].checked == true)) {
+                    form.action = "index3.html";
+                } else if ((form.ns[1].checked == true) && (form.pj[0].checked == true)) {
+                    form.action = "index4.html";
+                } else {
+                    alert("테스트를 확인하세요")
+                }
+                form.submit();
+            }
+        </script>
+
+</head>
+
+<body>
+
+
+
+<section class="wrapper">
+    <div id="test1">
+        <div class="question">
+            <p id="order">1 / 4</p>
+            <p class="q1">기후위기로 인해 보금자리를 잃은 북극곰 기사를 접한 당신</p>
+        </div>
+        <hr>
+        <div class="buttons" >
+            <button class="button is-large is-fullwidth" span="line" name="tf" value="2" onclick="one()">북극곰들 너무 불쌍해.. <br>어떻게 하면 북극곰이
+                행복해질까?
+            </button>
+            <button class="button is-large is-fullwidth" span="line" name="tf" value="1"  onclick="one()">북금곰들은 이제 어떻게 살지? <br>어째서 이렇게 된
+                걸까?
+            </button>
+        </div>
+    </div>
+    <div id="test2">
+        <div class="question">
+            <p id="order">2 / 4</p>
+            <p class="q1">이후 관련 웹 서핑을 하는 도중 해양오염에 관한 영상을 시청하는데 당신,</p>
+        </div>
+        <hr>
+        <div class="buttons" >
+            <button class="button is-large is-fullwidth" span="line" name="ns" value="2"  onclick="two()">해양오염이 나타난 원인에 대해서 더 살펴보자. <br>원래
+                어떤 방식으로 해양오염을 해결했을까?
+            </button>
+            <button class="button is-large is-fullwidth" span="line" name="ns" value="1"  onclick="two()">만약 나라면, 이렇게 할 수 있을 것 같아. <br>해양오염을
+                해결하기 위한 새로운 방법을 찾아보자
+            </button>
+        </div>
+    </div>
+    <div id="test3">
+        <div class="question">
+            <p id="order">3 / 4</p>
+            <p class="q1">마침 수업에서 대기오염과 관련된 '스모그 현상'에 관한 발표를 맡게 되었는데</p>
+        </div>
+        <hr>
+        <div class="buttons" >
+            <button class="button is-large is-fullwidth" span="line" name="pj" value="1"  onclick="three()">일단 자료를 천천히 모으고, 어떻게 정리할 지
+                진행하<br> 는 걸 보면서 정하자
+            </button>
+            <button class="button is-large is-fullwidth" span="line" name="pj" value="2" onclick="three()">일단 자료 수집, 정리, 발표의 목차와 일정을 정하고,
+                <br>체계적으로 준비하자
+            </button>
+        </div>
+    </div>
+    <div id="test4">
+        <div class="question">
+            <p id="order">4 / 4</p>
+            <p class="q1">발표를 만족스럽게 끝난 이후 앞으로 당신은</p>
+        </div>
+        <hr>
+        <div class="buttons" >
+            <button class="button is-large is-fullwidth" span="line" onclick="four()">앞으로 환경 문제를 해결하기 위해 어떤 활동에 <br> 참가
+                할 수 있는지 알아본다.
+            </button>
+            <button class="button is-large is-fullwidth" span="line" onclick="four()">앞으로 환경 문제를 해결하기 위해 어떤 후원을<br> 할 수
+                있는지 알아본다
+            </button>
+        </div>
+    </div>
+</section>
+</body>
+</html>
