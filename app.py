@@ -7,8 +7,15 @@ def home():
 
 @app.route('/test', methods=['GET'])
 def listing():
-    sample_receive = request.args.get('sample_give')
-    print(sample_receive)
+    one = request.args.get('one')
+    two = request.args.get('two')
+    three = request.args.get('three')
+
+    if one == "1":
+        return render_template("index1.html")
+    if one == "2":
+        return render_template("index2.html")
+
     return jsonify({'msg':'GET 연결되었습니다!'})
 
 if __name__ == '__main__':
