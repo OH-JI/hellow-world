@@ -2,13 +2,25 @@
 <html lang="en">
 <head>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@300;500&display=swap"
+          rel="stylesheet">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>내가 생각하는 환경은?</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
-        #order {
+
+        * {
+            font-family: 'Do Hyeon', sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 450;
+        }
+
+        .order {
             width: 80px;
             text-align: center;
             background-color: dodgerblue;
@@ -34,9 +46,6 @@
             margin: 10px auto;
         }
 
-        #answers {
-            text-align: left;
-        }
 
         .buttons:hover {
             color: white;
@@ -57,6 +66,11 @@
             align-items: center;
             padding-top: 100px;
             margin: auto;
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+
         }
 
         line {
@@ -68,6 +82,31 @@
             padding-top: 100px;
             margin: auto;
         }
+
+        .picture{
+            width: auto;
+            height: auto;
+            max-width: 350px;
+            max-height: 350px;
+        }
+
+        .picture2{
+            width: auto;
+            height: auto;
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        .answer{
+             display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+
     </style>
     <script>
         $(document).ready(function () {
@@ -120,70 +159,70 @@
 <section class="wrapper">
     <div id="test1">
         <div class="question">
-            <p id="order">1 / 4</p>
-            <p class="q1">기후위기로 인해 보금자리를 잃은 북극곰 기사를 접한 당신</p>
+            <p class="order">1 / 4</p>
+            <h1 class="q1">기후위기로 인해 보금자리를 잃은<br> 북극곰 기사를 접한 당신</h1>
         </div>
-        <hr>
+        <img class="picture" src="https://i.imgur.com/khagNJt.jpg" alt="my image">
+
         <div class="buttons">
-            <button class="button is-large is-fullwidth" span="line" name="tf" onclick="one(2)">북극곰들 너무 불쌍해..
+            <button class="button is-large is-fullwidth" span="line" name="tf" onclick="one(2); javascript:window.scrollTo(0,0)"><span class="answer">북극곰들 너무 불쌍해..
                 <br>어떻게 하면 북극곰이
-                행복해질까?
+                행복해질까?</span>
             </button>
-            <button class="button is-large is-fullwidth" span="line" name="tf" onclick="one(1)">북금곰들은 이제 어떻게
+            <button class="button is-large is-fullwidth" span="line" name="tf" onclick="one(1); javascript:window.scrollTo(0,0)"><span class="answer">북금곰들은 이제 어떻게
                 살지? <br>어째서 이렇게 된
-                걸까?
+                걸까?</span>
             </button>
-        </div>
+            </div>
     </div>
 
     <div id="test2">
         <div class="question">
-            <p id="order">2 / 4</p>
-            <p class="q1">이후 관련 웹 서핑을 하는 도중 해양오염에 관한 영상을 시청하는데 당신,</p>
+            <p class="order">2 / 4</p>
+            <h1 class="q1">이후 관련 웹 서핑을 하는 도중<br>해양오염 영상을 시청하는데</h1>
         </div>
-        <hr>
+        <img class="picture" src="https://i.imgur.com/uedilHo.jpg" alt="my image">
         <div class="buttons">
-            <button class="button is-large is-fullwidth" span="line" name="ns" onclick="two(2)">해양오염이 나타난 원인에
+            <button class="button is-large is-fullwidth" span="line" name="ns" onclick="two(2); javascript:window.scrollTo(0,0)"><span class="answer">해양오염이 나타난 원인에
                 대해서 더 살펴보자. <br>원래
-                어떤 방식으로 해양오염을 해결했을까?
+                어떤 방식으로 해양오염을 해결했을까?</span>
             </button>
-            <button class="button is-large is-fullwidth" span="line" name="ns" onclick="two(1)">만약 나라면, 이렇게 할 수
+            <button class="button is-large is-fullwidth" span="line" name="ns" onclick="two(1); javascript:window.scrollTo(0,0)"><span class="answer">만약 나라면, 이렇게 할 수
                 있을 것 같아. <br>해양오염을
-                해결하기 위한 새로운 방법을 찾아보자
+                해결하기 위한 새로운 방법을 찾아보자</span>
             </button>
         </div>
     </div>
 
     <div id="test3">
         <div class="question">
-            <p id="order">3 / 4</p>
-            <p class="q1">마침 수업에서 대기오염과 관련된 '스모그 현상'에 관한 발표를 맡게 되었는데</p>
+            <p class="order">3 / 4</p>
+            <h1 class="q1">마침 수업에서 대기오염과 관련된<br>'스모그 현상' 발표를 맡게 되었는데</h1>
         </div>
-        <hr>
+        <img class="picture" src="https://i.imgur.com/pE8X1np.jpg" alt="my image">
         <div class="buttons">
-            <button class="button is-large is-fullwidth" span="line" name="pj" onclick="three(1)">일단 자료를 천천히
-                모으고, 어떻게 정리할 지
-                진행하<br> 는 걸 보면서 정하자
+            <button class="button is-large is-fullwidth" span="line" name="pj" onclick="three(1); javascript:window.scrollTo(0,0)"><span class="answer">일단 자료를 천천히
+                모으고,<br>어떻게 정리할 지
+                진행하는 걸 보면서 정하자</span>
             </button>
-            <button class="button is-large is-fullwidth" span="line" name="pj" onclick="three(2)">일단 자료 수집, 정리,
-                발표의 목차와 일정을 정하고,
-                <br>체계적으로 준비하자
+            <button class="button is-large is-fullwidth" span="line" name="pj" onclick="three(2); javascript:window.scrollTo(0,0)"><span class="answer">일단 자료 수집, 정리,
+                발표의 목차와 일정을 정하고, <br>체계적으로 준비하자</span>
             </button>
         </div>
     </div>
 
     <div id="test4">
         <div class="question">
-            <p id="order">4 / 4</p>
-            <p class="q1">발표를 만족스럽게 끝난 이후 앞으로 당신은</p>
+            <p class="order">4 / 4</p>
+            <h1 class="q1">발표를 만족스럽게 끝난 이후</h1>
         </div>
-        <hr>
+        <img class="picture2" src="https://i.imgur.com/ZDHWLmx.jpg" alt="my image">
         <div class="buttons">
-            <button class="button is-large is-fullwidth" span="line" onclick="four()">앞으로 환경 문제를 해결하기 위해 어떤 활동에 <br> 참가
-                할 수 있는지 알아본다.
+            <button class="button is-large is-fullwidth" span="line" onclick="four(); javascript:window.scrollTo(0,0)"><span class="answer">앞으로 환경 문제를 해결하기 위해 어떤 활동에 <br> 참가
+                할 수 있는지 알아본다.</span>
             </button>
-            <button class="button is-large is-fullwidth" span="line" onclick="four()">앞으로 환경 문제를 해결하기 위해 어떤 후원을<br> 할 수
-                있는지 알아본다
+            <button class="button is-large is-fullwidth" span="line" onclick="four(); javascript:window.scrollTo(0,0)"><span class="answer">앞으로 환경 문제를 해결하기 위해 어떤 후원을<br> 할 수
+                있는지 알아본다</span>
             </button>
         </div>
     </div>
