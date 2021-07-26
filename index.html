@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>retro_market | shop</title>
+
+    <meta property="og:title" content="SOMETHING_AROUND"/>
+    <meta property="og:description" content="Retro_Market"/>
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage.jpg') }}"/>
+
+    <style>
+        .wrap {
+            margin: auto;
+            width: 500px;
+        }
+
+        .tape {
+            width: 250px;
+            height: 200px;
+            object-fit: cover;
+            margin-left: 150px;
+        }
+
+        .goods {
+            text-align: center;
+        }
+
+        .price {
+            font-size: 15px;
+        }
+
+        .buy {
+            margin: 30px;
+            line-height: 200%;
+
+        }
+
+        .box {
+            width: 500px;
+        }
+
+        .order {
+            font-size: 20px;
+            color: darkgray;
+        }
+
+        .button {
+
+            margin: auto;
+            width: 100px;
+
+            display: block;
+        }
+
+        .box2{
+            width:380px;
+            margin: auto;
+
+        }
+
+
+
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+            q1();
+            listing();
+        });
+
+          function listing() {
+              $.ajax({
+                  type: "GET",
+                  url: "/order",
+                  data: {},
+                  success: function (response) {
+                      if (response["result"] == "success") {
+
+                          let orders = response['orders'];
+
+                          for (let i = 0; i < orders.length; i++) {
+                              let name = orders[i]['name'];
+                              let count = orders[i]['count'];
+                              let address = orders[i]['address'];
+                              let phone = orders[i]['phone'];
+
+                              let temp_html = `<tr>
+                                                <th scope="row">${name}</th>
+                                                <td>${count}</td>
+                                                <td>${address}</td>
+                                                <td>${phone}</td>
+                                            </tr>`
+                              $('#orders-box').append(temp_html)
+                          }
+                      }
+                  }
+              })
+          }
+               function q1() {
+                  $.ajax({
+                      type: "GET",
+                      url: "http://spartacodingclub.shop/sparta_api/rate",
+                      data: {},
+                      success: function (response) {
+                          let exchange = response['rate']
+
+                          $('#now-rate').text(exchange)
+                      }
+                  })
+              }
+
+                function order() {
+
+                  let name = $('#order-name').val();
+                  let count = $('#order-count').val();
+                  let address = $('#order-address').val();
+                  let phone = $('#order-phone').val();
+
+                  $.ajax({
+                      type: "POST",
+                      url: "/order",
+                      data: {name_give: name, count_give: count, address_give: address, phone_give: phone},
+                      success: function (response) {
+                          if (response["result"] == "success") {
+                              alert(response["msg"]);
+                              window.location.reload();
+                          }
+                      }
+                  })
+
+          }
+
+    </script>
+
+</head>
+
+<body>
+<div class="wrap">
+    <img class="tape"
+         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTalg3KKSf1ERZ7bpZFMMfQbBC74t4YyBi95FMY2bjg-6AqtHujQwlclfDKU4mT9cWwc8zBmno&usqp=CAc"/>
+    <div class="goods">
+        <h1>MIX TAPE <span class="price">가격: 5,500원 / 달러-원 환율: <span id="now-rate">1219.15</span></span></h1>
+
+
+        <p></p>
+        <p> 복고풍 유행으로 돌아온 카세트 테이프</p>
+    </div>
+
+    <div class="buy">
+        <h1><span class="order">Please enter your information</span></h1>
+        <p></p>
+        <div>
+
+            <div class="form-group box box2">
+
+                성함
+                <div class="input-group mb-3">
+                    <input type="text" id="order-name" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+
+            <label> 수량</label>
+            <select id="order-count" class="custom-select">
+                <option selected>-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+                주소
+                <div class="input-group mb-3">
+                    <input id="order-address" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+                전화번호
+                <div class="input-group mb-3">
+                    <input type="text" id="order-phone" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
+
+            </div>
+
+            <button type="submit" onclick="order()" class="btn btn-primary button ">주문</button>
+        </div>
+    </div>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">이름</th>
+            <th scope="col">수량</th>
+            <th scope="col">주소</th>
+            <th scope="col">전화번호</th>
+        </tr>
+        </thead>
+        <tbody id="orders-box">
+        </tbody>
+    </table>
+
+    </div>
+</body>
+
+</html>
